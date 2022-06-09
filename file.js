@@ -1,16 +1,16 @@
-/**
- * Write a function `f(a, b)` which takes two strings as arguments and returns a
- * string containing the characters found in both strings (without duplication), in the
- * order that they appeared in `a`. Remember to skip spaces and characters you
- * have already encountered!
+/*
+ * Given an array of numbers, calculate the greatest contiguous sum of numbers in it.
+ * A single array item will count as a contiguous sum.
  *
- * Example: commonCharacters('acexivou', 'aegihobu')
- * Returns: 'aeiou'
- *
- * Extra credit: Extend your function to handle more than two input strings.
+ * example 1: sumArray([1, 2, 3]); // => 6
+ * example 2: sumArray([1, 2, 3, -4]); // 6
+ * example 3: sumArray([1, 2, 3, -4, 5]); // 7
+ * example 4: sumArray([4, -1, 5]); // => 8
+ * example 5: sumArray([10, -11, 11]); // 11
  */
 
- var commonChar = function(str1, str2) {
-
-    //code 
- }
+// Solved in O(n) time with O(1) space
+var sumArray = function(array) {
+   //code
+ };
+ 
