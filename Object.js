@@ -18,3 +18,6 @@ var library = [
         readingStatus: false
     }];
 
+    // Already read 'Bill Gates' by The Road Ahead.
+    //  Already read 'Steve Jobs' by Walter Isaacson.
+    //  You still need to read 'Mockingjay: The Final Book of The Hunger Games' by Suzanne Collins.
