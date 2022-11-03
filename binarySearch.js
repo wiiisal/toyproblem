@@ -11,4 +11,3 @@
 var binarySearch = function(arr, element) {
     return arr.indexOf(element)
 }
- //hkjbkjhkl
