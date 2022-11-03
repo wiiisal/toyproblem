@@ -1,23 +1,45 @@
-//Write a JavaScript program to display the reading status (i.e. display book name,
-// author name and reading status) of the following books
-
-var library = [ 
-    {
-        title: 'Bill Gates',
-        author: 'The Road Ahead',
-        readingStatus: true
-    },
-    {
-        title: 'Steve Jobs',
-        author: 'Walter Isaacson',
-        readingStatus: true
-    },
-    {
-        title: 'Mockingjay: The Final Book of The Hunger Games',
-        author: 'Suzanne Collins',
-        readingStatus: false
-    }];
-
-    // Already read 'Bill Gates' by The Road Ahead.
-    //  Already read 'Steve Jobs' by Walter Isaacson.
-    //  You still need to read 'Mockingjay: The Final Book of The Hunger Games' by Suzanne Collins.
+function each(coll, func) {
+    if (Array.isArray(coll)) {
+      for (var i = 0; i < coll.length; i++) {
+        func(coll[i], i);
+      }
+    } else {
+      for (var key in coll) {
+        func(coll[key], key);
+      }
+    }
+  }
+  
+  function map(coll, func) {
+    var acc = [];
+    if (!Array.isArray(coll)) {
+      acc = {};
+    }
+    each(coll, function (element, index) {
+      acc[index] = func(element, index);
+    });
+    return acc;
+  }
+  
+  function filter(array, predicate) {
+    var acc = [];
+    each(array, function (element, index) {
+      // notice we added the index here
+      if (predicate(element, index)) {
+        // notice we added the index here
+        acc.push(element);
+      }
+    });
+    return acc;
+  }
+  
+  function reduce(array, f, acc) {
+    if (acc === undefined) {
+      acc = array[0];
+      array = array.slice(1);
+    }
+    each(array, function (element, i) {
+      acc = f(acc, element, i);
+    });
+    return acc;
+  }
