@@ -11,14 +11,18 @@
  * starts over and repeats the process until the array is sorted numerically.
  *
  * QUERY: What's the time complexity of your algorithm?
+ * 
+ * o(n)
  *
  * Extra credit: Optimization time! During any given pass, if no elements are
  * swapped we can assume the list is sorted and can exit the function early.
  * After this optimization, what is the time complexity of your algorithm?
- *
+ *o(1)
+
  * Moar credits: Do you need to consider every element every time you iterate
  * through the array? Make it happen, boss. Again: Has the time complexity of
  * your algorithm changed?
+ * no
 */
 
 // input, outputs, constraints, space & time complexity
@@ -26,7 +30,19 @@
 // quadratic (n^2) time complexity (essentially 2 for loops)
 
 var bubbleSort = function(array) {
+  let prem = array.length;
+    for (let i = 0; i < prem; i++) {
+        for (let j = 0; j < prem; j++) {
+                      if (array[j] > array[j + 1]) {
+                          let deux = array[j];
+                          array[j] = array[j + 1];
+                          array[j + 1] = deux;
+                      }
+                  }
+              }
+              return array;
+          };
  
-}
+
 
 bubbleSort([4,3,2,1]);
