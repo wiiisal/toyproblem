@@ -44,5 +44,19 @@ var bubbleSort = function(array) {
           };
  
 
+//   var sorted = false;
+//   while (!sorted) {
+//     sorted = true;
+//     for (var i=0; i<array.length; i++) {
+//       if (array[i] > array[i+1]) {
+//         sorted = false;
+//         var temp = array[i];
+//         array[i] = array[i+1];
+//         array[i+1] = temp;
+//       }
+//     }
+//   }
+//   return array;
+// }
 
-bubbleSort([4,3,2,1]);
+console.log(bubbleSort([4,3,2,1]));
