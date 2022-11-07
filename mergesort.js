@@ -56,6 +56,75 @@
 
 // RECURSIVE (top-down) approach
 var mergeSort = function(arr) {
+    if (arr.length === 1) {return arr;}
+    var midpoint = Math.floor(arr.length / 2);
+    // recursively determine left and right arrays
+    var left = mergeSort(arr.slice(0, midpoint)) || [];
+    var right = mergeSort(arr.slice(midpoint, arr.length)) || [];
+    return merge(left,right);
+  }
   
+  var merge = function(left, right) {
+    var result = [];
+    while (left.length || right.length) { 
+      if (left[0] === undefined) {
+        result.push(right[0]);
+        right.shift();
+      } else if (right[0] === undefined) {
+        result.push(left[0]);
+        left.shift();
+      } else if (left[0] > right[0]) {
+        result.push(right[0]);
+        right.shift();
+      } else if (left[0] <= right[0]) {
+        result.push(left[0]);
+        left.shift();
+      }
+    }
+    return result;
+  }
+  
+  // ITERATIVE (bottom-up) approach: start with singles [[1],[3],[2]]
+  var mergeSort = function(array) {
+  
+    var singles = [];
+    var makeSingles = function(array) {
+      array.forEach(function(item) {
+        singles.push([item]);
+      });
+    }
+    makeSingles(array);
+  
+    var sortArrays = function(arr) {
+      if (arr.length === 1) {return arr[0];}
+      var idx = -1;
+      var result = [];
+  
+      for (var i=0; i<arr.length; i+=2) {
+        result.push([]); // pushing in one future result array for every 2 compared
+        idx++;
+        var left = arr[i];
+        var right = arr[i+1] || [];
+        while (left.length || right.length) {
+          if (left[0] === undefined) {
+            result[idx].push(right[0]);
+            right.shift();
+          } else if (right[0] === undefined) { // set right to empty arr so this will pass
+            result[idx].push(left[0]); // if odd number, will just push in left
+            left.shift();
+          } else if (left[0] > right[0]) {
+            result[idx].push(right[0]);
+            right.shift();
+          } else if (left[0] <= right[0]) {
+            result[idx].push(left[0]);
+            left.shift();
+          }
+        }
+      }
+  
+      return sortArrays(result);
+    }
+    
+    return sortArrays(singles);
   }
   
