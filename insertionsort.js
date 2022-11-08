@@ -38,6 +38,20 @@
 
 // This function is to help you test, and should not be incorporated in your solution.
 // It will transform an array of numbers into an array of valid objects.
-var testingTransform = function(array) {
-   
+var insertionSort = function(array) {
+    for(var i=1;i<array.length;i++){
+      //Assume that array.slice(0,i) is sorted
+      //Grab the current element
+      var val =array[i]
+      var hole=i
+      //Find the insertion point 
+      while(hole && val<array[hole-1]){
+        array[hole]=array[hole-1]
+        hole-=1
+      }
+      //Insert the elemnt
+      array[hole]=val
+
+    }
+   return array 
   }
